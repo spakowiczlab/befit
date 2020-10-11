@@ -22,7 +22,7 @@ library(viridis)
 
 ```{r}
 # Set parameters
-accrue <-  36
+accrue <-  46
 dropout.rate <- 0.1
 n <- accrue - (accrue * dropout.rate)
 n.arm <- floor(n / 2)
@@ -61,7 +61,7 @@ The LCSC screens an average of 16 patients per week (8 per clinic, 2 clinics per
 
 ```{r}
 # Power 
-pwr::pwr.t.test(n = 16,
+pwr::pwr.t.test(n = n.arm,
                 d = NULL,
                 sig.level = 0.05,
                 power = 0.8,
@@ -118,7 +118,7 @@ power.df %>%
   scale_fill_viridis() +
   geom_hline(aes(yintercept = 0.5), linetype = "dotted", alpha = 0.5) +
   geom_vline(xintercept = a1.rep$cv, linetype = "dotted", alpha = 0.5)
-  ggsave("figures/nkt-diff_lymphnodes.png", height = 3, width = 4)
+  ggsave("../figures/fold-change_v_cv.png", height = 3, width = 4)
 
 ```
 

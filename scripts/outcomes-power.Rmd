@@ -122,5 +122,19 @@ power.df %>%
 
 ```
 
+# Inflammatory biomarker outcomes
 
+##  Difference in CRP, IGF and IL6 (normal distribution)
+
+```{r}
+n.tests <- 3
+
+# Power 
+pwr::pwr.t.test(n = n.arm,
+                d = NULL,
+                sig.level = 0.05/n.tests,
+                power = 0.8,
+                type = "paired",
+                alternative = "less")
+```
 
